@@ -11,16 +11,16 @@ Window {
     TableView {
         id: tableView
         model: table_model
-        property var columnWidths: [100, 350, 150]
+        property var columnWidths: [60, 350, 150]
         columnWidthProvider: function (column) { return columnWidths[column] }
-        rowHeightProvider: function (column) { return 60; }
+        rowHeightProvider: function (column) { return 30; }
         anchors.fill: parent
         topMargin: columnHead.implicitHeight
 
         ScrollBar.vertical: ScrollBar{}
         clip: true
 
-        Row {
+        Row { //Headers
             id: columnHead
             y: tableView.contentY
             z: 1
@@ -32,6 +32,7 @@ Window {
                     text: modelData
                     font.pixelSize: 15
                     verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
                     background: Rectangle {
                         border.width: 1
                         color: "#eeeeee"
